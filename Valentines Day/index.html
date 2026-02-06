@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Background Hearts -->
+    <div class="floating-hearts-container" id="background-hearts"></div>
+
+    <main class="container">
+        <!-- Envelope/Letter Container -->
+        <div class="envelope-wrapper">
+            <div class="letter-paper">
+
+                <!-- Question Screen -->
+                <section id="question-screen" class="fade-in">
+                    <p class="recipient-text">To: Nyarie 💌</p>
+
+                    <h1 class="headline">Hey Baby,<br>Will you be my Valentine? 💖</h1>
+
+                    <div class="gif-container">
+                        <img src="https://media.giphy.com/media/LpDmM2wSt6Hm5fKJVa/giphy.gif" alt="Cute Heart Animation"
+                            class="sticker">
+                    </div>
+
+                    <div class="buttons">
+                        <button id="yes-btn" class="btn yes-btn">YES 💕</button>
+                        <button id="no-btn" class="btn no-btn">NO 🙈</button>
+                    </div>
+
+                    <p class="sender-text">From: Munashe 🌹</p>
+                </section>
+
+                <!-- Celebration Screen -->
+                <section id="celebration-screen" class="hidden">
+                    <h1 class="headline">Yay! 💖</h1>
+                    <p class="message">
+                        You are an incredible, beautiful, and kind person.<br>
+                        You make every moment brighter, and I’m so lucky to have you.<br>
+                        Thank you for being exactly who you are. 💕
+                    </p>
+
+                    <div class="gif-container">
+                        <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Celebration Hug"
+                            class="sticker">
+                    </div>
+
+                    <button id="restart-btn" class="btn restart-btn">Restart 🔄</button>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    --primary-pink: #ff758c;
+    --secondary-pink: #ff7eb3;
+    --deep-red: #d63384;
+    --white-soft: rgba(255, 255, 255, 0.9);
+    --text-color: #4a4a4a;
+    --font-heading: 'Pacifico', cursive;
+    --font-body: 'Nunito', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+/* Envelope & Letter Styles */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.envelope-wrapper {
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.letter-paper {
+    background: #fffdf5;
+    /* Off-white paper color */
+    padding: 3rem 2rem;
+    position: relative;
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.15),
+        0 8px 0 -4px #e0d8c0,
+        /* Stacked paper effect */
+        0 8px 10px -2px rgba(0, 0, 0, 0.2),
+        /* Drop shadow */
+        0 20px 30px rgba(0, 0, 0, 0.15);
+    /* Deep shadow */
+    border-radius: 4px;
+    text-align: center;
+    /* Paper Texture effect */
+    background-image: linear-gradient(0deg, transparent 24%, rgba(214, 51, 132, 0.05) 25%, rgba(214, 51, 132, 0.05) 26%, transparent 27%, transparent 74%, rgba(214, 51, 132, 0.05) 75%, rgba(214, 51, 132, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    transform: rotate(-1deg);
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: inset 0 0 40px rgba(255, 230, 230, 0.5);
+    /* Inner vignette */
+    pointer-events: none;
+}
+
+/* Recipient & Sender Styling */
+.recipient-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    transform: rotate(-2deg);
+}
+
+.sender-text {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: #4a4a4a;
+    text-align: right;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    transform: rotate(-1deg);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.headline {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--deep-red);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    text-shadow: 2px 2px 0px rgba(255, 192, 203, 0.3);
+}
+
+.message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #666;
+    font-weight: 600;
+    color: #d63384;
+}
+
+.gif-container {
+    margin: 1.5rem 0;
+}
+
+.sticker {
+    max-width: 160px;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transform: rotate(2deg);
+    border: 5px solid white;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    min-height: 80px;
+    margin-top: 1rem;
+}
+
+.btn {
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 5;
+}
+
+.yes-btn {
+    background-color: var(--primary-pink);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.yes-btn:hover {
+    background-color: var(--deep-red);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(214, 51, 132, 0.5);
+}
+
+.no-btn {
+    background-color: #f0f0f0;
+    color: #666;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.no-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.restart-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 8px 20px;
+}
+
+.restart-btn:hover {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 117, 140, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 117, 140, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 117, 140, 0);
+    }
+}
+
+/* Background Hearts */
+.floating-hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(255, 255, 255, 0.6);
+    animation: floatUp linear forwards;
+    font-size: 20px;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
